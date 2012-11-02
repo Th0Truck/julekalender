@@ -1,0 +1,29 @@
+%p#notice= notice
+
+.row
+  %table.table.table-striped
+    %tr
+      %th Overskrift
+      %th Spørgsmål
+    %tr
+      %td= @question.header
+      %td= @question.question
+    %tr
+      %th Valgmulighed
+      %th Rigtigt svar
+    - @options.each do |option|
+      %tr
+        %td= option.label
+        %td
+          - if option.correct == 1
+            Ja
+          - else
+            Nej
+.row.post
+  = render 'questions_options/form'
+
+.row
+  - @answers = Answer.find_all_by_question_id(@question.id)
+  = @answers.count
+  besvarelser
+

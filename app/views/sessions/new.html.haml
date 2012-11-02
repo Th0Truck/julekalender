@@ -1,0 +1,17 @@
+%h1 Login
+.row
+  .span16
+  - if !current_user
+    = form_tag sessions_path do
+      .row
+        .span8
+          %label E-mail
+          = text_field_tag :email, 'E-mail'
+      .row
+        .span8
+          %label Adgangskode
+          = password_field_tag :password
+      .row
+        .span8
+          = submit_tag 'login', :class => 'btn'
+  - else

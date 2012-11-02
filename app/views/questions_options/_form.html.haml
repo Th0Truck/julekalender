@@ -1,0 +1,16 @@
+- @questions_option = QuestionsOption.new(question_id: @question.id)
+= simple_form_for @questions_option do |f|
+  - if @questions_option.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@questions_option.errors.count, "error")} prohibited this questions_option from being saved:"
+      %ul
+        - @questions_option.errors.full_messages.each do |msg|
+          %li= msg
+
+  .row.pushright
+    = f.input :question_id, :as => :hidden
+    = f.input :label, :label => 'Valg'
+    .pushright
+      = f.input :correct, :label => false, :collection => [[1, 'Rigtigt svar'],[0, 'Forkert svar']], :label_method => :last, :value_method => :first, :as => :radio
+  .row.pushright
+    = f.button :submit, :value => 'Gem valgmulighed', :class => 'btn btn-danger'

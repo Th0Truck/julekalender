@@ -1,0 +1,27 @@
+development:
+  adapter: mysql2
+  database: julekalender
+  username: julekalender
+  password: N1ss3m4nd
+  pool: 5
+  host: 127.0.0.1
+  port: 3306
+  encoding: utf8
+test:
+  adapter: mysql2
+  database: julekalender
+  username: julekalender
+  password: N1ss3m4nd
+  pool: 5
+  host: 127.0.0.1
+  port: 3306
+  encoding: utf8
+production:
+  adapter: mysql2
+  database: julekalender
+  username: julekalender
+  password: N1ss3m4nd
+  pool: 5
+  host: 127.0.0.1
+  port: 3306
+  encoding: utf8

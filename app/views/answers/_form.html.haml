@@ -1,0 +1,25 @@
+- today = Answer.where("DATE(created_at) = DATE(?)", Time.now).first
+- if today
+  - @question = today.question
+- else
+  - @question = Question.where('id NOT IN (SELECT question_id FROM answers)').order('rand()').first
+  - create = Answer.new(:question_id => @question.id)
+  - create.save
+-# @options = QuestionsOption.find_all_by_question_id(@question.id)
+- @answer = Answer.new(:question_id => @question.id)
+.row
+  %table.table.table-striped
+    %tr
+      %th= @question.header
+    %tr
+      %td= @question.question
+    %tr
+      %th Svar
+    %tr
+      %td
+        = simple_form_for @answer do |f|
+          = f.input :user_id, :input_html => {:value => current_user.id}, :as => :hidden
+          = f.input :question_id, :as => :hidden
+          = f.collection_select :answer, @question.questions_options, :id, :label
+          = f.button :submit, :value => 'Indsend svar', :class => 'btn btn-danger'
+

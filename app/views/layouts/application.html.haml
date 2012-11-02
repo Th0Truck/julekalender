@@ -1,0 +1,51 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
+    %title= Julekalender
+    = stylesheet_link_tag    "application", media: 'all'
+    = stylesheet_link_tag    "print", media: 'print'
+    = javascript_include_tag "application"
+    = content_for :javascript_includes
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top.navbar-inverse
+      .navbar-inner
+        .container
+          = link_to root_path, :class => 'brand' do
+            UCSyddanmarks Julekalender.
+          - if current_user
+            .pull-right{:style => 'color:white;'}
+              = current_user.name
+              = link_to 'Log ud', '/logout', :class => 'btn btn-warning'
+          - else
+            .pull-right
+              = link_to 'Tilmeld', '/signup', :class => 'btn btn-danger'
+              = link_to 'Log ind', '/login', :class => 'btn btn-primary'
+    .container
+      .spacer.head
+      %section
+        .spacer.large
+        - if !current_user
+          = yield
+          .row
+            .span3= link_to 'Vi byder nye nisser velkommen', '/signup', :class => 'btn btn-danger'
+          .spacer.medium
+          .row
+            eller hvis du har været her før kan du
+            = link_to 'logge ind her.', '/login'
+        - else
+          = yield
+          - answered = current_user.answers.where("DATE(answers.created_at) = DATE(?)", Time.now)
+          - if answered.count > 0
+            %span.label.label-info
+              Du har besvaret dagens spørgsmål
+          - else
+            Dagens Spørgsmål
+            = render :partial => 'answers/form'
+
+          - if current_user.id == 1
+            .row
+              %hr
+              =link_to 'Opret spørgesmål', new_question_path, :class => 'btn btn-primary'
+

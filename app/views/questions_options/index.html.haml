@@ -1,0 +1,21 @@
+%h1 Listing questions_options
+
+%table
+  %tr
+    %th Question
+    %th Label
+    %th
+    %th
+    %th
+
+  - @questions_options.each do |questions_option|
+    %tr
+      %td= questions_option.question_id
+      %td= questions_option.label
+      %td= link_to 'Show', questions_option
+      %td= link_to 'Edit', edit_questions_option_path(questions_option)
+      %td= link_to 'Destroy', questions_option, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Questions option', new_questions_option_path

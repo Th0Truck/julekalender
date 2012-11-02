@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Question:
+  = @questions_option.question_id
+%p
+  %b Label:
+  = @questions_option.label
+
+= link_to 'Edit', edit_questions_option_path(@questions_option)
+\|
+= link_to 'Back', questions_options_path

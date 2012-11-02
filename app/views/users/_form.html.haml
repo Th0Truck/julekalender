@@ -1,0 +1,27 @@
+-if !@user
+  %h1 Tilmeld nisse
+- else
+  %h1 Nisse
+= simple_form_for @user do |f|
+  -if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+  .row
+    - if @user.name?
+      .span3= f.input :name, :label => 'Nissenavn', readonly: true, :id => 'username'
+    - else
+      .span3= f.input :name, :label => 'Nissenavn', :id => 'username'
+    .span3= f.input :email, :label => 'E-mail'
+  .row
+    .span3
+    .span3= f.input :password, :label => 'Adgangskode', :id => 'password'
+    .span3= f.input :password_confirmation, :label => 'Gentag adgangskode'
+    .span2{:id => 'result'}
+
+  .row.btn-group
+    .span3
+      = f.button :submit, :value => 'Opret', :class => 'btn btn-primary'
+      = link_to 'Tilbage', root_path, :class => 'btn'
