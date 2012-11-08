@@ -1,8 +1,8 @@
-Julekalender!
+<h1>Julekalender!</h1>
 
 En super simpel julekalender, hvor man opretter en række spørgsmål med svarmuligheder (1, 2, mange...)
 
 Ved besvarelse af spørgsmål, vil spørgsmålene vælges tilfældigt for dagens første bruger.
 For næste bruger, vil Rails tjekke hvilke spørgsmål der er besvaret 'i dag' (defineret af ovenstående) og vise denne frem for vedkommende.
 
- Til slut vil der være en opsummering af besvarede spørgsmål, så man kan vælge en vinder.
+Til slut vil der være en opsummering af besvarede spørgsmål, så man kan vælge en vinder.
