@@ -1,4 +1,4 @@
-<h1>Julekalender!</h1>
+ Julekalender!
 
 En super simpel julekalender, hvor man opretter en række spørgsmål med svarmuligheder (1, 2, mange...)
 
