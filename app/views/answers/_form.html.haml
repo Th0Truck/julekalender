@@ -8,15 +8,15 @@
 -# @options = QuestionsOption.find_all_by_question_id(@question.id)
 - @answer = Answer.new(:question_id => @question.id)
 .row
-  %table.table.table-striped
+  %table.table.table-bordered
     %tr
-      %th= @question.header
+      %th.span12= @question.header
     %tr
-      %td= @question.question
+      %td.span12= @question.question
     %tr
-      %th Svar
+      %th.span12 Svar
     %tr
-      %td
+      %td.span12
         = simple_form_for @answer do |f|
           = f.input :user_id, :input_html => {:value => current_user.id}, :as => :hidden
           = f.input :question_id, :as => :hidden

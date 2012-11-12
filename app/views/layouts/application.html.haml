@@ -16,8 +16,9 @@
             UCSyddanmarks Julekalender.
           - if current_user
             .pull-right{:style => 'color:white;'}
-              = current_user.name
-              = link_to 'Log ud', '/logout', :class => 'btn btn-warning'
+              .span4
+                = current_user.name
+                = link_to 'Log ud', '/logout', :class => 'btn btn-warning'
           - else
             .pull-right
               = link_to 'Tilmeld', '/signup', :class => 'btn btn-danger'
@@ -28,10 +29,11 @@
         .spacer.large
         - if !current_user
           = yield
+          %hr
           .row
             .span3= link_to 'Vi byder nye nisser velkommen', '/signup', :class => 'btn btn-danger'
-          .spacer.medium
-          .row
+          .spacer.large
+          .row.span6
             eller hvis du har været her før kan du
             = link_to 'logge ind her.', '/login'
         - else
@@ -40,12 +42,19 @@
           - if answered.count > 0
             %span.label.label-info
               Du har besvaret dagens spørgsmål
-          - else
+          - elsif current_user.answered < Question.all.count && @creating != true
             Dagens Spørgsmål
             = render :partial => 'answers/form'
+          - elsif @creating == true
 
+          - else
+            %span.label.label-info
+              Du har besvaret alle spørgsmål
           - if current_user.id == 1
             .row
               %hr
               =link_to 'Opret spørgesmål', new_question_path, :class => 'btn btn-primary'
-
+    .ornament-left
+      = image_tag('ornament.png')
+    .ornament-right
+      = image_tag('ornament.png')
