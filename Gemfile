@@ -32,7 +32,7 @@ gem 'font-awesome-sass-rails', :git => 'https://github.com/littlebtc/font-awesom
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-gem 'ckeditor', git: 'https://github.com/galetahub/ckeditor'
+gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor'
 gem "capistrano", :group => :development
 gem 'bootstrap-components-helpers', :git => 'git://gist.github.com/2117187.git'
 # To use ActiveModel has_secure_password
