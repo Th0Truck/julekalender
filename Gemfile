@@ -13,13 +13,13 @@ group :assets do
   gem 'uglifier'
 end
 #Less
-gem 'less', '2.2.1'
-gem 'less-rails', '2.2.3'
+gem 'less', '2.2.2'
+gem 'less-rails', '2.2.5'
 gem 'less-rails-bootstrap', '2.0.12'
 
-gem 'rvm-capistrano'
-gem 'capistrano'
-gem 'capistrano-unicorn'
+#gem 'rvm-capistrano'
+#gem 'capistrano'
+#gem 'capistrano-unicorn'
 gem 'jquery-rails'
 gem 'haml'
 gem "haml-rails", "~> 0.3.4"
@@ -32,7 +32,7 @@ gem 'font-awesome-sass-rails', :git => 'https://github.com/littlebtc/font-awesom
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor'
+#gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor'
 gem "capistrano", :group => :development
 gem 'bootstrap-components-helpers', :git => 'git://gist.github.com/2117187.git'
 # To use ActiveModel has_secure_password
