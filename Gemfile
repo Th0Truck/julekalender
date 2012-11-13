@@ -12,6 +12,11 @@ group :assets do
   gem 'coffee-script'
   gem 'uglifier'
 end
+#Less
+gem 'less', '2.2.1'
+gem 'less-rails', '2.2.3'
+gem 'less-rails-bootstrap', '2.0.12'
+
 gem 'rvm-capistrano'
 gem 'capistrano'
 gem 'capistrano-unicorn'
