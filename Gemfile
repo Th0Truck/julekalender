@@ -12,7 +12,9 @@ group :assets do
   gem 'coffee-script'
   gem 'uglifier'
 end
-
+gem 'rvm-capistrano'
+gem 'capistrano'
+gem 'capistrano-unicorn'
 gem 'jquery-rails'
 gem 'haml'
 gem "haml-rails", "~> 0.3.4"
