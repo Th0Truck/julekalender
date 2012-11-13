@@ -24,7 +24,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'font-awesome-sass-rails', :git => 'https://github.com/littlebtc/font-awesome-sass-rails.git'
-
+gem 'therubyracer'
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem 'ckeditor', git: 'https://github.com/galetahub/ckeditor'
