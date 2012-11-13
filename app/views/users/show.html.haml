@@ -1,21 +1,24 @@
-%p#notice= notice
+- if current_user.type == 9
+  %p#notice= notice
 
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Password:
-  = @user.password
-%p
-  %b Password salt:
-  = @user.password_salt
-%p
-  %b Password hash:
-  = @user.password_hash
+  %p
+    %b Name:
+    = @user.name
+  %p
+    %b Email:
+    = @user.email
+  %p
+    %b Password:
+    = @user.password
+  %p
+    %b Password salt:
+    = @user.password_salt
+  %p
+    %b Password hash:
+    = @user.password_hash
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+  = link_to 'Edit', edit_user_path(@user)
+  \|
+  = link_to 'Back', users_path
+- else
+  = redirect_to root_url

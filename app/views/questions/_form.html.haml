@@ -1,14 +1,17 @@
-= simple_form_for @question do |f|
-  - if @question.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@question.errors.count, "error")} prohibited this question from being saved:"
-      %ul
-        - @question.errors.full_messages.each do |msg|
-          %li= msg
+- if current_user.type == 9
+  = simple_form_for @question do |f|
+    - if @question.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@question.errors.count, "error")} prohibited this question from being saved:"
+        %ul
+          - @question.errors.full_messages.each do |msg|
+            %li= msg
 
-  .row
-    = f.input :header, :label => 'Overskrift'
-  .row
-    = f.input :question, :label => 'Spørgsmål'
-  .row
-    = f.button :submit, :value => 'Gem'
+    .row
+      = f.input :header, :label => 'Overskrift'
+    .row
+      = f.input :question, :label => 'Spørgsmål'
+    .row
+      = f.button :submit, :value => 'Gem'
+- else
+  = redirect_to root_url

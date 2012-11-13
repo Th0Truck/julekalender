@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
@@ -44,7 +45,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to new_session_path, notice: 'En nisse kommer rejsende...' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'Nissen har fået vasket huen...' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

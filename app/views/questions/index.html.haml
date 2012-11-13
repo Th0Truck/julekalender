@@ -1,21 +1,24 @@
-%h1 Listing questions
+- if current_user.type == 9
+  %h1 Listing questions
 
-%table
-  %tr
-    %th Header
-    %th Question
-    %th
-    %th
-    %th
-
-  - @questions.each do |question|
+  %table
     %tr
-      %td= question.header
-      %td= question.question
-      %td= link_to 'Show', question
-      %td= link_to 'Edit', edit_question_path(question)
-      %td= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }
+      %th Header
+      %th Question
+      %th
+      %th
+      %th
 
-%br
+    - @questions.each do |question|
+      %tr
+        %td= question.header
+        %td= question.question
+        %td= link_to 'Show', question
+        %td= link_to 'Edit', edit_question_path(question)
+        %td= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }
 
-= link_to 'New Question', new_question_path
+  %br
+
+  = link_to 'New Question', new_question_path
+- else
+  = redirect_to root_url
