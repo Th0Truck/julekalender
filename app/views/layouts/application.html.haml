@@ -52,7 +52,7 @@
           - else
             %span.label.label-info
               Du har besvaret alle spørgsmål
-          - if current_user.usertype == 9 && root_url
+          - if current_user.usertype == 9 && current_page?(root_url)
             .spaver.large
             %h4 Overnisse
             %p Du er oprettet som Overnisse her på Julekalenderen, dette betyder at du kan oprette spørgsmål, og senere også vil kunne se resulaterne på de øvrige nissers besvarelser.
