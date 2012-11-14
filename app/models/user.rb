@@ -2,7 +2,7 @@
 require 'bcrypt'
 class User < ActiveRecord::Base
   has_many :answers
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation, :type
 
   validates                 :name,      :password,        :email, :presence => true
   validates_confirmation_of :password,  :password_confirmation

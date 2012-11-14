@@ -1,14 +1,16 @@
-%h1 Listing answers
+- if current_user.usertype == 9
+  %h1 Listing answers
 
-.table
-  %tr
-    %th User
-    %th Question
-    %th Answer
+  .table
+    %tr
+      %th User
+      %th Question
+      %th Answer
 
-- @answers.each do |answer|
-  %tr
-    %td= answer.user_id
-    %td= answer.question_id
-    %td= answer.answer
-
+  - @answers.each do |answer|
+    %tr
+      %td= answer.user_id
+      %td= answer.question_id
+      %td= answer.answer
+- else
+  = redirect_to root_url
