@@ -19,7 +19,7 @@
               .span4
                 = current_user.name
                 - if current_user.usertype == 9
-                  = link_to 'Opret spørgesmål', new_question_path, :class => 'btn btn-primary'
+                  = link_to 'Opret spørgsmål', new_question_path, :class => 'btn btn-primary'
                 = link_to 'Log ud', '/logout', :class => 'btn btn-warning'
           - else
             .pull-right
