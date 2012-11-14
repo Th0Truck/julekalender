@@ -50,7 +50,7 @@
           - else
             %span.label.label-info
               Du har besvaret alle spørgsmål
-          - if current_user.type == 9
+          - if current_user.usertype == 9
             .row
               %hr
               =link_to 'Opret spørgesmål', new_question_path, :class => 'btn btn-primary'
