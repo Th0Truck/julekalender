@@ -18,6 +18,8 @@
             .pull-right{:style => 'color:white;'}
               .span4
                 = current_user.name
+                - if current_user.usertype == 9
+                  = link_to 'Opret spørgesmål', new_question_path, :class => 'btn btn-primary'
                 = link_to 'Log ud', '/logout', :class => 'btn btn-warning'
           - else
             .pull-right
@@ -50,10 +52,6 @@
           - else
             %span.label.label-info
               Du har besvaret alle spørgsmål
-          - if current_user.usertype == 9
-            .row
-              %hr
-              =link_to 'Opret spørgesmål', new_question_path, :class => 'btn btn-primary'
     .ornament-left
       = image_tag('ornament.png')
     .ornament-right
