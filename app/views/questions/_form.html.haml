@@ -6,12 +6,13 @@
         %ul
           - @question.errors.full_messages.each do |msg|
             %li= msg
-
+    .spacer.large
     .row
       = f.input :header, :label => 'Overskrift'
     .row
-      = f.input :question, :label => 'Spørgsmål'
+      = f.input :question, :label => 'Spørgsmål', :input_html => {:rows => 5}
     .row
-      = f.button :submit, :value => 'Gem'
+      = f.button :submit, :value => 'Gem', :class => "btn btn-primary"
+      = link_to 'Tilbage', root_path, :class => 'btn btn-danger'
 - else
   = redirect_to root_url
