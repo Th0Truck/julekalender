@@ -32,4 +32,8 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+
+  def self.numcorrect
+    answers.where(:correct == 1).count
+  end
 end

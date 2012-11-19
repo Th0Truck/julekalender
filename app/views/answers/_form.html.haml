@@ -1,27 +1,36 @@
-- today = Answer.where("DATE(created_at) = DATE(?)", Time.now).first
-- if today
-  - @question = today.question
+- t = Time.now
+- if t.month == 12
+  - today = Answer.where("DATE(created_at) = DATE(?)", Time.now).first
+  - if today
+    - @question = today.question
+  - else
+    - @question = Question.where('id NOT IN (SELECT question_id FROM answers)').order('rand()').first
+    - create = Answer.new(:question_id => @question.id)
+    - create.save
+  -# @options = QuestionsOption.find_all_by_question_id(@question.id)
+  - @answer = Answer.new(:question_id => @question.id)
+  .spacer.large
+  .row
+    %table.table.table-bordered
+      %tr
+        %th.span12= @question.header
+      %tr
+        %td.span12= @question.question
+      %tr
+        %th.span12 Svar
+      %tr
+        %td.span12
+          = simple_form_for @answer do |f|
+            = f.input :user_id, :input_html => {:value => current_user.id}, :as => :hidden
+            = f.input :question_id, :as => :hidden
+            = f.collection_select :answer, @question.questions_options, :id, :label
+            = f.button :submit, :value => 'Indsend svar', :class => 'btn btn-primary'
+            = link_to 'Tilbage', root_path, :class => 'btn btn-danger'
 - else
-  - @question = Question.where('id NOT IN (SELECT question_id FROM answers)').order('rand()').first
-  - create = Answer.new(:question_id => @question.id)
-  - create.save
--# @options = QuestionsOption.find_all_by_question_id(@question.id)
-- @answer = Answer.new(:question_id => @question.id)
-.spacer.large
-.row
-  %table.table.table-bordered
-    %tr
-      %th.span12= @question.header
-    %tr
-      %td.span12= @question.question
-    %tr
-      %th.span12 Svar
-    %tr
-      %td.span12
-        = simple_form_for @answer do |f|
-          = f.input :user_id, :input_html => {:value => current_user.id}, :as => :hidden
-          = f.input :question_id, :as => :hidden
-          = f.collection_select :answer, @question.questions_options, :id, :label
-          = f.button :submit, :value => 'Indsend svar', :class => 'btn btn-primary'
-          = link_to 'Tilbage', root_path, :class => 'btn btn-danger'
+  %h3 Julekalenderen åbner først til December
+  %p
+    Om
+    - start_date = Date.parse("2012 December 01")
+    = (t - start_date).to_i / 1.day
+    dage
 

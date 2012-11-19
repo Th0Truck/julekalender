@@ -28,6 +28,7 @@
     .container
       .spacer.head
       %section
+        - t = Time.now
         .spacer.large
         - if !current_user
           = yield
@@ -38,7 +39,9 @@
           .row.span6
             eller hvis du har været her før kan du
             = link_to 'logge ind her.', '/login'
-        - else
+            - if t.month != 12
+              %h3 Julekalenderen åbner først til december
+        - elsif t.wday == 1..5 && t.month == 12
           = yield
           - answered = current_user.answers.where("DATE(answers.created_at) = DATE(?)", Time.now)
           - if answered.count > 0
@@ -48,7 +51,10 @@
             Dagens Spørgsmål
             = render :partial => 'answers/form'
           - elsif @creating == true
-
+            - if t.wday == 1..4
+              %p Du har besvaret dagens spørgsmål, kom igen i morgen for næste spørgsmål
+            - elsif t.wday == 5
+              %p Du har besvaret dagens spørgsmål, kom igen på Mandag for næste spørgsmål
           - else
             %span.label.label-info
               Du har besvaret alle spørgsmål
@@ -57,6 +63,30 @@
             %h4 Overnisse
             %p Du er oprettet som Overnisse her på Julekalenderen, dette betyder at du kan oprette spørgsmål, og senere også vil kunne se resulaterne på de øvrige nissers besvarelser.
             %p Kig øverst i menulinjen i toppen, for at finde dine udvidede muligheder.
+            %p
+            - if t.month != 12
+              Julekalenderen starter om
+              - start_date = Time.parse("2012 December 01")
+              = (start_date - t).to_i / 1.day
+              dage
+            - elsif current_user.answers.count == 0
+              %p Du har endnu ikke besvaret et spørgsmål...
+            - else
+              %p
+                Du har indsendt
+                = current_user.answers.count
+                svar.
+        - elsif (t.wday == 6 || t.wday == 0) && t.month == 12
+          %p Julekalenderen holder lukket i weekenderne. Kom igen på Mandag for næste spørgsmål
+        - else
+          - if t.month == 12
+            %h3 Julekalenderen er lukket i weekenderne
+            %p
+              Du har indsendt
+              = current_user.answers.count
+              svar.
+          - else
+            %h3 Julekalenderen åbner først til December
     .ornament-left
       = image_tag('ornament.png')
     .ornament-right
