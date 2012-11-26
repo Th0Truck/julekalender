@@ -28,9 +28,4 @@
             = link_to 'Tilbage', root_path, :class => 'btn btn-danger'
 - else
   %h3 Julekalenderen åbner først til December
-  %p
-    Om
-    - start_date = Date.parse("2012 December 01")
-    = (t - start_date).to_i / 1.day
-    dage
 
