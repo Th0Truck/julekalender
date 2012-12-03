@@ -44,6 +44,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     respond_to do |format|
+      @user.usertype = 1
       if @user.save
         format.html { redirect_to new_session_path, notice: 'En nisse kommer rejsende...' }
         format.json { render json: @user, status: :created, location: @user }
