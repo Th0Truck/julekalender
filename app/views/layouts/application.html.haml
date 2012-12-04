@@ -42,7 +42,7 @@
             = link_to 'logge ind her.', '/login'
             - if t.month != 12
               %h3 Julekalenderen åbner først til december
-        - elsif t.wday == 1..5 && t.month == 12
+        - elsif t.wday.between?(1,5) && t.month == 12
           = yield
           - answered = current_user.answers.where("DATE(answers.created_at) = DATE(?)", Time.now)
           - if answered.count > 0
