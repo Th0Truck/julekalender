@@ -34,8 +34,6 @@
         - t = Time.now
         .spacer.large
         - if !current_user && t.month == 12
-          %h3 Resultatet
-          Vinderne bliver offentliggjort her og på intranettet snarest.
           = yield
           %hr
           .row
