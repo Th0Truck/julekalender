@@ -13,7 +13,9 @@
       .navbar-inner
         .container
           = link_to root_path, :class => 'brand' do
-            UCSyddanmarks Julekalender.
+            .icon-star
+            UCSyddanmarks Julekalender
+            .icon-star
           - if current_user
             - current_user.usertype = 1
             .pull-right{:style => 'color:white;'}
@@ -24,8 +26,8 @@
                 = link_to 'Log ud', '/logout', :class => 'btn btn-warning'
           - else
             .pull-right
-              = link_to 'Tilmeld', '/signup', :class => 'btn btn-danger'
-              = link_to 'Log ind', '/login', :class => 'btn btn-primary'
+              =# link_to 'Tilmeld', '/signup', :class => 'btn btn-danger'
+              =# link_to 'Log ind', '/login', :class => 'btn btn-primary'
     .container
       .spacer.head
       %section
@@ -66,10 +68,14 @@
             %p Kig øverst i menulinjen i toppen, for at finde dine udvidede muligheder.
             %p
             - if t.month != 12
-              Julekalenderen starter om
-              - start_date = Time.parse("2012 December 01")
-              = (start_date - t).to_i / 1.day
-              dage
+              -# Julekalenderen starter om
+              -# start_date = Time.parse("2012 December 01")
+              =# (start_date - t).to_i / 1.day
+              -# dage
+              %h3 Resultatet
+              Vinderne bliver offentliggjort her og på intranettet snarest.
+
+
             - elsif current_user.answers.count == 0
               %p Du har endnu ikke besvaret et spørgsmål...
             - else
@@ -87,7 +93,8 @@
               = current_user.answers.count
               svar.
           - else
-            %h3 Julekalenderen åbner først til December
+            %h3 Resultatet
+            Vinderne bliver offentliggjort her og på intranettet snarest.
     .ornament-left
       = image_tag('ornament.png')
     .ornament-right
