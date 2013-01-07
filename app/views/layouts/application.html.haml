@@ -73,8 +73,33 @@
               -# start_date = Time.parse("2012 December 01")
               =# (start_date - t).to_i / 1.day
               -# dage
-              %h3 Resultatet
-              Vinderne bliver offentliggjort her og på intranettet snarest.
+              %h3 Julekalenderkonkurrencen
+              %p Så er det igen blevet hverdag. Spændingen om hvem der vandt 2012’s julekalenderkonkurrence er nu udløst.
+              .img-rounded= image_tag "1.jpg"
+              %p Der var to kolleger, som havde alle 15 svar rigtige og 9 som havde 14 rigtige.
+              %p Det var blandt HHOS og MSLA, at der skulle findes en vinder. Derfor blev der foretaget en lodtrækning mellem disse to. Tekniknissen og Forfatternissen trak lod i Forfatternissens cykelhjælp.
+              %p Førstepræmien går til: Majbritt Stenfat Larsen - Udvikling og Forskning Haderslev og andenpræmien til: Hella Hostrup - Biblioteket Esbjerg.
+              %p Så var der 9 deltagere med 14 rigtige. Her skulle vinderen af 3. pladsen findes.
+              %br …og notarius publicus nissen udtrak vinder nr. 3
+              %br …og vinderen blev: Knud Adamsen – It-Afdelingen Haderslev.
+              %p Til lykke til de 3 vindere, som får nærmere besked om hvor de kan hente præmierne.
+              %p Præmierne vises herunder via links.
+              %h3 Præmier
+              %p Nu er det ikke for ingenting it-nørde-nisser, som har udvalgt præmierne. Derfor vil nogen måske sige, at de er lidt nørdede ;-) Vi håber, at de alligevel vil falde i god jord.
+              %br Præmierne har alle sammen noget med mad at gøre, på den ene eller anden måde.
+              %h5 Præmierne er:
+              %ol
+                %li
+                  %a{:href => 'http://www.coolstuff.dk/Veggie-Twister'}
+                %li
+                  %a{:href => 'http://www.coolstuff.dk/Beep-Egg'}
+                %li
+                  %a{:href => 'http://www.coolstuff.dk/Magic-Egg'}
+              %p Fra Julekalendernisserne skal der lyde en tak til alle deltagere. Der var 101, som besvarede et eller flere spørgsmål. Vi håber, at I også synes, at det var sjovt. Måske gentager vi spøgen næste år?
+              %br Vi vil nu tage til Grønland, hvile ud oven på strabadserne, besøge julemanden og tænke over et par tekniske forbedringer og nye spørgsmål til næste års julekalender.
+              %p Godt nytår fra Tekniknissen og Forfatternissen
+
+              %h4 Thomas & Åge
 
 
             - elsif current_user.answers.count == 0
@@ -94,8 +119,49 @@
               = current_user.answers.count
               svar.
           - else
-            %h3 Resultatet
-            Vinderne bliver offentliggjort her og på intranettet snarest.
+            %br
+            %br
+            %h3 Julekalenderkonkurrencen
+            .row
+              .span4= image_tag "1.jpg", :class => 'img-rounded'
+              .span4
+                %p Så er det igen blevet hverdag. Spændingen om hvem der vandt 2012’s julekalenderkonkurrence er nu udløst.
+                = image_tag "2.jpg", :class => 'img-rounded'
+                %p Der var to kolleger, som havde alle 15 svar rigtige og 9 som havde 14 rigtige.
+            .row
+              .span4= image_tag "3.jpg", :class => 'img-rounded'
+              .span4
+                %p Det var blandt HHOS og MSLA, at der skulle findes en vinder. Derfor blev der foretaget en lodtrækning mellem disse to. Tekniknissen og Forfatternissen trak lod i Forfatternissens cykelhjælp.
+                %p Førstepræmien går til: Majbritt Stenfat Larsen - Udvikling og Forskning Haderslev og andenpræmien til: Hella Hostrup - Biblioteket Esbjerg.
+            .row
+              .span4= image_tag "4.jpg", :class => 'img-rounded'
+              .span4
+                Så var der 9 deltagere med 14 rigtige. Her skulle vinderen af 3. pladsen findes.
+                %br …og notarius publicus nissen udtrak vinder nr. 3
+            .row
+              .span4= image_tag "5.jpg", :class => 'img-rounded'
+              .span4 …og vinderen blev: Knud Adamsen – It-Afdelingen Haderslev.
+            .row
+              .span4
+              .span8
+                %p Til lykke til de 3 vindere, som får nærmere besked om hvor de kan hente præmierne.
+                %p Præmierne vises herunder via links.
+                %h3 Præmier
+                %p Nu er det ikke for ingenting it-nørde-nisser, som har udvalgt præmierne. Derfor vil nogen måske sige, at de er lidt nørdede ;-) Vi håber, at de alligevel vil falde i god jord.
+                %br Præmierne har alle sammen noget med mad at gøre, på den ene eller anden måde.
+                %h5 Præmierne er:
+                %ol
+                  %li
+                    %a{:href => 'http://www.coolstuff.dk/Veggie-Twister', :target => '_blank'} http://www.coolstuff.dk/Veggie-Twister
+                  %li
+                    %a{:href => 'http://www.coolstuff.dk/Beep-Egg', :target => '_blank'} http://www.coolstuff.dk/Beep-Egg
+                  %li
+                    %a{:href => 'http://www.coolstuff.dk/Magic-Egg', :target => '_blank'} http://www.coolstuff.dk/Magic-Egg
+                %p Fra Julekalendernisserne skal der lyde en tak til alle deltagere. Der var 101, som besvarede et eller flere spørgsmål. Vi håber, at I også synes, at det var sjovt. Måske gentager vi spøgen næste år?
+                %br Vi vil nu tage til Grønland, hvile ud oven på strabadserne, besøge julemanden og tænke over et par tekniske forbedringer og nye spørgsmål til næste års julekalender.
+                %p Godt nytår fra Tekniknissen og Forfatternissen
+
+                %h4 Thomas & Åge
     .ornament-left
       = image_tag('ornament.png')
     .ornament-right

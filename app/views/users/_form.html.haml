@@ -10,7 +10,8 @@
     - if @user.name?
       .span3= f.input :name, :label => 'Nissenavn', readonly: true, :id => 'username'
     - else
-      .span3= f.input :name, :label => 'Nissenavn', :id => 'username'
+      .span3
+        = f.input :name, :label => 'Nissenavn', :id => 'username'
     .span3= f.input :email, :label => 'E-mail'
   .row
     .span3
