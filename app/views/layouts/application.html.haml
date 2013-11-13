@@ -18,23 +18,23 @@
             UCSyddanmarks Julekalender
             .icon-star
           - if current_user
-            - current_user.usertype = 1
             .pull-right{:style => 'color:white;'}
-              .span4
+              .span6
                 = current_user.name
                 - if current_user.usertype == 9
                   = link_to 'Opret spørgsmål', new_question_path, :class => 'btn btn-primary'
                 = link_to 'Log ud', '/logout', :class => 'btn btn-warning'
           - else
             .pull-right
-              =# link_to 'Tilmeld', '/signup', :class => 'btn btn-danger'
-              =# link_to 'Log ind', '/login', :class => 'btn btn-primary'
+              = link_to 'Tilmeld', '/signup', :class => 'btn btn-danger'
+              = link_to 'Log ind', '/login', :class => 'btn btn-primary'
     .container
       .spacer.head
       %section
         - t = Time.now
+        - start = 12
         .spacer.large
-        - if !current_user && t.month == 12
+        - if !current_user && t.month == start
           = yield
           %hr
           .row
@@ -43,9 +43,9 @@
           .row.span6
             eller hvis du har været her før kan du
             = link_to 'logge ind her.', '/login'
-            - if t.month != 12
+            - if t.month != start
               %h3 Julekalenderen åbner først til december
-        - elsif t.wday.between?(1,5) && t.month == 12
+        - elsif t.wday.between?(1,5) && t.month == start
           = yield
           - answered = current_user.answers.where("DATE(answers.created_at) = DATE(?)", Time.now)
           - if answered.count > 0
@@ -68,7 +68,7 @@
             %p Du er oprettet som Overnisse her på Julekalenderen, dette betyder at du kan oprette spørgsmål, og senere også vil kunne se resulaterne på de øvrige nissers besvarelser.
             %p Kig øverst i menulinjen i toppen, for at finde dine udvidede muligheder.
             %p
-            - if t.month != 12
+            - if t.month != start
               Julekalenderen starter om
               - start_date = Time.parse("2012 December 01")
               = (start_date - t).to_i / 1.day
@@ -82,20 +82,23 @@
                 Du har indsendt
                 = current_user.answers.count
                 svar.
-        - elsif (t.wday == 6 || t.wday == 0) && t.month == 12
+        - elsif (t.wday == 6 || t.wday == 0) && t.month == start
           %p Julekalenderen holder lukket i weekenderne. Kom igen på Mandag for næste spørgsmål
         - else
-          - if t.month == 12
+          - if t.month == start
             %h3 Julekalenderen er lukket i weekenderne
             %p
               Du har indsendt
               = current_user.answers.count
               svar.
+          - elsif t.month > start && current_user.admin?
+            = link_to questions_path, 'Oprettede spørgsmål'
           - else
             .spacer.large
             %h1 University College Danmark's Julekalender
             %p
-              - if t.month != 12
+              - if t.month != start
+                = yield
                 Julekalenderen starter om
                 - start_date = Time.parse("2013 December 01")
                 = (start_date - t).to_i / 1.day

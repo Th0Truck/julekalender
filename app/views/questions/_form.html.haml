@@ -1,4 +1,4 @@
-- if current_user.usertype == 9
+- if current_user.admin?
   = simple_form_for @question do |f|
     - if @question.errors.any?
       #error_explanation

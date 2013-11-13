@@ -1,7 +1,7 @@
 - t = Time.now
 - if t.month == 12
   - today = Answer.where("DATE(created_at) = DATE(?)", Time.now).first
-  - if today
+  - if today.present?
     - @question = today.question
   - else
     - @question = Question.where('id NOT IN (SELECT question_id FROM answers)').order('rand()').first

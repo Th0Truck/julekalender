@@ -36,4 +36,8 @@ class User < ActiveRecord::Base
   def self.numcorrect
     answers.where(:correct == 1).count
   end
+
+  def admin?
+    usertype == 9
+  end
 end
