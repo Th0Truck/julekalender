@@ -4,14 +4,37 @@
 @fontAwesomeSvgzPath: asset-path('fontawesome-webfont.svgz');
 @fontAwesomeSvgPath: asset-path('fontawesome-webfont.svg');
 
+/*
 @import 'fontawesome';
+*/
 
+@font-face {
+  font-family: 'GotHamBold';
+  src: url('Gotham-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GotHamLight';
+  src: url('Gotham-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GotHam';
+  src: url('Gotham-Book.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   background-image:url('Xmas_Wallpaper_08___White_by_bm.png');
   background-repeat:no-repeat;
   background-size:cover;
+  font: GotHam;
 }
-
+h1, h2, h3, h4, h5 {
+  font: GotHamBold;
+}
 .table tbody tr:hover td, .table tbody tr:hover th {
   background:none;
 }
@@ -65,3 +88,15 @@ body {
   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
 }
+.spacer {
+  width: 100%;
+}
+.spacer.large {
+  height: 55px;
+}
+.spacer.medium {
+  height: 25px;
+}
+.spacer.small {
+   height: 18px;
+ }
