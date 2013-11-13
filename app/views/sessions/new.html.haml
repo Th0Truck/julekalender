@@ -3,18 +3,19 @@
 - if t.month != 12
   %h3 Julekalenderen åbner først til December
   %p Men du er velkommen til at tilmelde dig før vi starter
-.span16
+
 - if !current_user
-  = form_tag sessions_path do
-    .row
-      .span8
-        %label E-mail
-        = text_field_tag :email, 'E-mail', :value => '', :placeholder => 'E-mail'
-    .row
-      .span8
-        %label Adgangskode
-        = password_field_tag :password
-    .row
-      .span8
-        = submit_tag 'login', :class => 'btn'
+  .span12
+    = form_tag sessions_path do
+      .row
+        .span8
+          %label E-mail
+          = text_field_tag :email, 'E-mail', :value => '', :placeholder => 'E-mail'
+      .row
+        .span8
+          %label Adgangskode
+          = password_field_tag :password
+      .row
+        .span8
+          = submit_tag 'login', :class => 'btn'
 - else
