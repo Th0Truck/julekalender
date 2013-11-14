@@ -46,6 +46,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       @user.usertype = 1
       if @user.save
+        UserMailer.welcome_mail(@user).deliver
         format.html { redirect_to new_session_path, notice: 'En nisse kommer rejsende...' }
         format.json { render json: @user, status: :created, location: @user }
       else
