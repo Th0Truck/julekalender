@@ -98,6 +98,7 @@
             %h1 University College SydDanmarks Julekalender
             %p
               - if t.month != start
+                = l t
                 = yield
                 Julekalenderen starter om
                 - start_date = Time.parse("2013 December 01")
