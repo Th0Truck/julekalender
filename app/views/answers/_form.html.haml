@@ -1,5 +1,5 @@
 - t = Time.now
-- if t.month == 12
+- if t.month == start
   - today = Answer.where("DATE(created_at) = DATE(?)", Time.now).first
   - if today.present?
     - @question = today.question
