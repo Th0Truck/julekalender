@@ -32,7 +32,7 @@
       .spacer.head
       %section
         - t = Time.now
-        - start = 12
+        - start = 11
         .spacer.large
         - if !current_user && t.month == start
           = yield
@@ -70,7 +70,7 @@
             %p
             - if t.month != start
               Julekalenderen starter om
-              - start_date = Time.parse("2012 December 01")
+              - start_date = Time.parse("2013 December 01")
               = (start_date - t).to_i / 1.day
               dage
 
@@ -98,7 +98,6 @@
             %h1 University College SydDanmarks Julekalender
             %p
               - if t.month != start
-                = l t
                 = yield
                 Julekalenderen starter om
                 - start_date = Time.parse("2013 December 01")
