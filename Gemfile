@@ -6,12 +6,10 @@ gem 'mysql2'
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  # gem 'sass-rails', git: 'https://github.com/rails/sass-rails.git', branch: '3-1-stable'
-  gem 'sass-rails'
-  gem 'coffee-script'
-  gem 'uglifier'
-end
+gem 'sass-rails'
+gem 'coffee-script'
+gem 'uglifier'
+
 #Less
 gem 'less', '2.2.2'
 gem 'less-rails', '2.2.5'
