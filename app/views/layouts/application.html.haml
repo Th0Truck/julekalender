@@ -130,8 +130,6 @@
             %p.row Tekniknissen, Forfatternissen og Personaleforeningen - Esbjerg.
           - else
             %h1 University College SydDanmarks Julekalender
-            - if current_user.usertype == 9
-
             %p
               - if t.month != start
                 = yield
