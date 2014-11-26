@@ -93,7 +93,7 @@
               svar.
           - elsif t.month > start && current_user.admin?
             = link_to questions_path, 'Oprettede spørgsmål'
-          - else
+          - elsif t.month < 11
             .spacer.large
             %h1 University College SydDanmarks Julekalender
             %img.img-rounded{:src => '/assets/8.jpg'}
@@ -135,7 +135,7 @@
               - if t.month != start
                 = yield
                 Julekalenderen starter om
-                - start_date = Time.parse("2013 December 01")
+                - start_date = Time.parse("2014 December 01")
                 = (start_date - t).to_i / 1.day
                 dage
       .footer
