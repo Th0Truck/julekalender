@@ -47,6 +47,19 @@
               %h3 Julekalenderen åbner først til december
         - elsif t.wday.between?(1,5) && t.month == start
           = yield
+          -#
+            - yesterday = Question.answers.where("DATE(answers.created_at) = DATE(?)", Time.yesterday)
+            - if yesterday.present?
+              - y_question = yesterday.question
+              - y_answer = y_question.correct_answer
+              %h3 Gårsdagens spørgsmål
+              %p
+                %strong= y_question.header
+                %br
+                = y_question.question
+                %br
+                Svar:
+                = y_answer.label
           - answered = current_user.answers.where("DATE(answers.created_at) = DATE(?)", Time.now)
           - if answered.count > 0
             %span.label.label-info
@@ -138,7 +151,7 @@
                 = (start_date - t).to_i / 1.day
                 dage
       .footer
-        %h4 Præmierne er sponseret af Personale Foreningerne i Esbjerg og Haderslev.
+        %h4 Præmierne er sponseret af Personale Foreningen i Esbjerg og Campus Haderslev.
     .ornament-left
       = image_tag('ornament.png')
     .ornament-right
