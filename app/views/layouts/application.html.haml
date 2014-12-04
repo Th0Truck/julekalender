@@ -69,7 +69,6 @@
               Du har besvaret dagens spørgsmål
           - elsif current_user.answered < Question.all.count && @creating != true
             .row.span8
-              Dagens Spørgsmål
               = render :partial => 'answers/form'
           - elsif @creating == true
             - if t.wday == 1..4
