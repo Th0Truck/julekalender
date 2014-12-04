@@ -11,21 +11,18 @@
   - @answer = Answer.new(:question_id => @question.id)
   .spacer.large
   .row
-    %table.table.table-bordered
-      %tr
-        %th.span12= @question.header
-      %tr
-        %td.span12= @question.question
-      %tr
-        %th.span12 Svar
-      %tr
-        %td.span12
-          = simple_form_for @answer do |f|
-            = f.input :user_id, :input_html => {:value => current_user.id}, :as => :hidden
-            = f.input :question_id, :as => :hidden
-            = f.collection_select :answer, @question.questions_options, :id, :label
-            = f.button :submit, :value => 'Indsend svar', :class => 'btn btn-primary'
-            = link_to 'Tilbage', root_path, :class => 'btn btn-danger'
+    .span12
+      %h4= @question.header
+      %p= @question.question
+      %p
+        Svar
+        %br
+        = simple_form_for @answer do |f|
+          = f.input :user_id, :input_html => {:value => current_user.id}, :as => :hidden
+          = f.input :question_id, :as => :hidden
+          = f.collection_select :answer, @question.questions_options, :id, :label
+          = f.button :submit, :value => 'Indsend svar', :class => 'btn btn-primary'
+          = link_to 'Tilbage', root_path, :class => 'btn btn-danger'
 - else
   %h3 Julekalenderen åbner først til December
 

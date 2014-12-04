@@ -47,12 +47,15 @@
               %h3 Julekalenderen åbner først til december
         - elsif t.wday.between?(1,5) && t.month == start
           = yield
-          -#
-            - yesterday = Question.answers.where("DATE(answers.created_at) = DATE(?)", Time.yesterday)
+          .row.span8
+            %b
+              Spørgsmålet fra
+              - Date.yesterday
+            - yesterday = Answer.where("DATE(answers.created_at) = DATE(?)", Date.yesterday).first
             - if yesterday.present?
               - y_question = yesterday.question
               - y_answer = y_question.correct_answer
-              %h3 Gårsdagens spørgsmål
+              %h5 Gårsdagens spørgsmål
               %p
                 %strong= y_question.header
                 %br
@@ -65,8 +68,9 @@
             %span.label.label-info
               Du har besvaret dagens spørgsmål
           - elsif current_user.answered < Question.all.count && @creating != true
-            Dagens Spørgsmål
-            = render :partial => 'answers/form'
+            .row.span8
+              Dagens Spørgsmål
+              = render :partial => 'answers/form'
           - elsif @creating == true
             - if t.wday == 1..4
               %p Du har besvaret dagens spørgsmål, kom igen i morgen for næste spørgsmål

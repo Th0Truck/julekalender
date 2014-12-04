@@ -3,8 +3,8 @@ class Question < ActiveRecord::Base
   has_many :questions_options
   attr_accessible :header, :question
 
-  def self.correct_answer
-      questions_options.where { |a| a.correct == 1 }
+  def correct_answer
+      questions_options.select { |a| a.correct == 1 }.first
   end
 
 end
