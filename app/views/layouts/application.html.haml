@@ -63,6 +63,19 @@
                 %br
                 Svar:
                 = y_answer.label
+          .row.span8
+            %h3 Årets præmier
+            %ol
+              %li Popcornmaskine Cinema Style
+              %li Penclic D2 med Ledning
+              %li Candyfloss-maskine
+              %li KitchPro Digital Køkkenmåler
+              %li Leonardo da Vinci Katapult
+              %li SpaceRail Level I
+              %li Den Selvrørende Kop
+              %li Quirky ledningsholder Sort
+              %li Egg Cuber
+              %li Eggspress
           - answered = current_user.answers.where("DATE(answers.created_at) = DATE(?)", Time.now)
           - if answered.count > 0
             %span.label.label-info
