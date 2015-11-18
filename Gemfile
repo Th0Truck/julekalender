@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '4.2.3'
 
 gem 'mysql2'
 
@@ -18,6 +18,7 @@ gem 'less-rails-bootstrap', '2.0.12'
 #gem 'rvm-capistrano'
 #gem 'capistrano'
 #gem 'capistrano-unicorn'
+gem 'unicorn'
 gem 'jquery-rails'
 gem 'haml'
 gem "haml-rails", "~> 0.3.4"
