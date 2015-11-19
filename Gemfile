@@ -12,7 +12,7 @@ gem 'uglifier'
 
 #Less
 gem 'less', '2.2.2'
-gem 'less-rails', '2.2.5'
+gem 'less-rails', '2.5.0'
 gem 'less-rails-bootstrap', '2.0.12'
 
 #gem 'rvm-capistrano'
