@@ -7,8 +7,8 @@ Julekalender::Application.routes.draw do
   resources :questions
 
   resources :answers
-  match '/signup', to: "Users#new", via: [:post,:get]
-  match '/login', to: "Sessions#new", via: [:post,:get]
+  match '/signup', to: "users#new", via: [:post,:get]
+  match '/login', to: "sessions#new", via: [:post,:get]
   match "logout", to: "sessions#destroy", :as => "logout", via: [:post,:get]
   #match "login" => "sessions#new", :as => "login", via: [:post,:get]
   #match "signup", to: "Users#new", via: [:post,:get]
