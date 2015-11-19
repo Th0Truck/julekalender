@@ -7,11 +7,11 @@ Julekalender::Application.routes.draw do
   resources :questions
 
   resources :answers
-  match '/signup' => "Users#new"
-  match '/login' => "Sessions#new"
-  get "logout" => "sessions#destroy", :as => "logout"
-  post "login" => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
+  match '/signup', to: "Users#new", via: [:post,:get]
+  match '/login', to: "Sessions#new", via: [:post,:get]
+  match "logout", to: "sessions#destroy", :as => "logout", via: [:post,:get]
+  #match "login" => "sessions#new", :as => "login", via: [:post,:get]
+  #match "signup", to: "Users#new", via: [:post,:get]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
