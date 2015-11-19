@@ -25,7 +25,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass'
 gem 'simple_form'
-gem "bcrypt-ruby", :require => "bcrypt"
+gem "bcrypt"
 gem 'font-awesome-sass-rails', :git => 'https://github.com/littlebtc/font-awesome-sass-rails.git'
 gem 'therubyracer'
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
