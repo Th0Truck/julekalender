@@ -41,7 +41,7 @@ class QuestionsOptionsController < ApplicationController
   # POST /questions_options.json
   def create
     params[:questions_option][:correct].to_i
-    @questions_option = QuestionsOption.new(params[:questions_option])
+    @questions_option = QuestionsOption.new(questions_option_params)
 
     respond_to do |format|
       if @questions_option.save

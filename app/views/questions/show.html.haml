@@ -23,7 +23,7 @@
   = render 'questions_options/form'
 
 .row
-  - @answers = Answer.find_all_by_question_id(@question.id)
+  - @answers = Answer.where(question_id: @question.id)
   = @answers.count
   besvarelser
 

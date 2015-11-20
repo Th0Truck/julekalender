@@ -14,7 +14,8 @@ class QuestionsController < ApplicationController
   # GET /questions/1.json
   def show
     @question = Question.find(params[:id])
-    @options = QuestionsOption.find_all_by_question_id(params[:id])
+    @options = @question.questions_options
+    #@options = QuestionsOption.find_all_by_question_id(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @question }
@@ -40,7 +41,7 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(params[:question])
+    @question = Question.new(question_params)
 
     respond_to do |format|
       if @question.save
@@ -84,7 +85,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:header, :question)
+    params.require(:question).permit(:header, :question, :link)
   end
 
 end

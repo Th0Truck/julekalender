@@ -40,7 +40,7 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    @answer = Answer.new(params[:answer])
+    @answer = Answer.new(answer_params)
     @option = QuestionsOption.find(params[:answer][:answer])
     #@answer.correct = @option.correct.to_i
     respond_to do |format|

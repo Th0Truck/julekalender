@@ -32,7 +32,7 @@
       .spacer.head
       %section
         - t = Time.now
-        - start = 12
+        - start = 11
         .spacer.large
         - if !current_user && t.month == start
           = yield
@@ -49,10 +49,11 @@
           = yield
           .row.span8
             %b
-              Spørgsmålet fra
-              - Date.yesterday
             - yesterday = Answer.where("DATE(answers.created_at) = DATE(?)", Date.yesterday).first
             - if yesterday.present?
+              Spørgsmålet fra
+              = Date.yesterday
+              %br
               - y_question = yesterday.question
               - y_answer = y_question.correct_answer
               %h5 Gårsdagens spørgsmål
@@ -64,18 +65,6 @@
                 Svar:
                 = y_answer.label
           .row.span8
-            %h3 Årets præmier
-            %ol
-              %li Popcornmaskine Cinema Style
-              %li Penclic D2 med Ledning
-              %li Candyfloss-maskine
-              %li KitchPro Digital Køkkenmåler
-              %li Leonardo da Vinci Katapult
-              %li SpaceRail Level I
-              %li Den Selvrørende Kop
-              %li Quirky ledningsholder Sort
-              %li Egg Cuber
-              %li Eggspress
           - answered = current_user.answers.where("DATE(answers.created_at) = DATE(?)", Time.now)
           - if answered.count > 0
             %span.label.label-info
@@ -98,10 +87,7 @@
             %p Kig øverst i menulinjen i toppen, for at finde dine udvidede muligheder.
             %p
             - if t.month != start
-              Julekalenderen starter om
-              - start_date = Time.parse("2013 December 01")
-              = (start_date - t).to_i / 1.day
-              dage
+              Julekalenderen starter den 1. december.
 
 
             - elsif current_user.answers.count == 0
@@ -122,7 +108,7 @@
               svar.
           - elsif t.month > start && current_user.admin?
             = link_to questions_path, 'Oprettede spørgsmål'
-          - elsif t.month < 11
+          - elsif t.month < start
             .spacer.large
             %h1 University College SydDanmarks Julekalender
             -# %img.img-rounded{:src => '/assets/8.jpg'}
