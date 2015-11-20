@@ -216,10 +216,7 @@
             %p
               - if t.month != start
                 = yield
-                Julekalenderen starter om
-                - start_date = Time.parse("2015 December 01")
-                = (start_date - t).to_i / 1.day
-                dage
+                Julekalenderen starter 1. december
       .footer
         %h4 Præmier fra Personaleforeningen i Esbjerg og Campus Haderslev.
     .ornament-left
