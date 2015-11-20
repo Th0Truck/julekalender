@@ -81,4 +81,11 @@ class AnswersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:answer, :question_id, :user_id, :correct)
+  end
+
 end

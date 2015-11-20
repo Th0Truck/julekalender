@@ -81,4 +81,11 @@ class QuestionsOptionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def questions_option_params
+    params.require(:questions_option).permit(:label, :question_id, :correct)
+  end
+
 end

@@ -80,4 +80,11 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def question_params
+    params.require(:question).permit(:header, :question)
+  end
+
 end
