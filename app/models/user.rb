@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
   validates                 :name,      :email,           :uniqueness => true
   validates_length_of       :name,      :within => 3..40, :message => ' -> Brugernavn skal være 3-40 tegn'
   validates_length_of       :password,  :within => 5..40, :message => ' -> Password skal være 5-40 tegn'
-  validates_format_of       :email,     :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :message => "<b style='color:red;'>Tjek din e-mail indstastnng</b>"
-  validates_format_of       :email,     :with => /^([^@\s]+)@ucsyd.dk$/i, :message => "<b style='color:red;'>Skal være en ...@ucsyd.dk e-mail</b>"
+  validates_format_of       :email,     :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   before_save               :encrypt_password
 
   def answered
