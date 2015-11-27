@@ -107,7 +107,7 @@
               svar.
           - elsif t.month > start && current_user.admin?
             = link_to questions_path, 'Oprettede spørgsmål'
-          - elsif t.month < start
+          - elsif t.month < start && 1 == 2
             .spacer.large
             %h1 University College SydDanmarks Julekalender
             -# %img.img-rounded{:src => '/assets/8.jpg'}
@@ -197,7 +197,7 @@
               %p.row Det samlede deltagerfelt med 13 og 14 rigtige ser sådan ud, idet det skal bemærkes at IHJE er LHJE, og altså en rettelse af Sætternissen. 89 har deltaget i julespøgen, og heraf har de 45 svaret på mindst 5 spørgsmål.
               %img.img-rounded{:src => '/assets/6.JPG'}
               %p.row Tekniknissen, Forfatternissen og Personaleforeningen - Esbjerg.
-          - else
+          - elsif t.month < start && current_user.admin?
             %h1 University College SydDanmarks Julekalender
             %p
               - if t.month != start
