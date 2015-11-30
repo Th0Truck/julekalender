@@ -30,7 +30,7 @@
     .container
       .spacer.head
       %section
-        - t = Time.now
+        - t = DateTime.now
         - start = 12
         .spacer.large
         - if !current_user && t.month == start
@@ -42,7 +42,7 @@
           .row.span6
             eller hvis du har været her før kan du
             = link_to 'logge ind her.', '/login'
-            - if t.month != start
+            - if t.mon != start
               %h3 Julekalenderen åbner først til december
         - elsif t.wday.between?(1,5) && t.month == start
           = yield
@@ -88,7 +88,6 @@
             - if t.month != start
               Julekalenderen starter den 1. december.
 
-
             - elsif current_user.answers.count == 0
               %p Du har endnu ikke besvaret et spørgsmål...
             - else
@@ -96,7 +95,7 @@
                 Du har indsendt
                 = current_user.answers.count
                 svar.
-        - elsif (t.wday == 6 || t.wday == 0) && t.month == start
+        - elsif (t.wday == 6 || t.wday == 0) && t.mon == start
           %p Julekalenderen holder lukket i weekenderne. Kom igen på Mandag for næste spørgsmål
         - else
           - if t.month == start
