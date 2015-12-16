@@ -109,99 +109,17 @@
           - elsif t.month < start && 1 == 2
             .spacer.large
             %h1 University College SydDanmarks Julekalender
-            -# %img.img-rounded{:src => '/assets/8.jpg'}
-            -#
-              .row.span8
-                %h3 Årets vindere
-                %ol
-                  %li
-                    RROH:
-                    = link_to 'Popcornmaskine Cinema Style', 'http://www.coolstuff.dk/Popcornmaskine-Cinema-Style'
-                  %li
-                    CBNI:
-                    = link_to 'Penclic D2 med Ledning', 'http://www.coolstuff.dk/Penclic-Mouse'
-                  %li
-                    MTAR:
-                    = link_to 'Candyfloss-maskine', 'http://www.coolstuff.dk/Candyfloss-maskine'
-                  %li
-                    BSMA:
-                    = link_to 'KitchPro Digital Køkkenmåler', 'http://www.coolstuff.dk/KitchPro-digitalt-kokkenmal'
-                  %li
-                    PEKN:
-                    = link_to 'Leonardo da Vinci Katapult', 'http://www.coolstuff.dk/Leonardo-da-Vinci-Tramodeller'
-                  %li
-                    AJOR:
-                    = link_to 'SpaceRail Level I', 'http://www.coolstuff.dk/SpaceRail'
-                  %li
-                    DLJU:
-                    = link_to 'Den Selvrørende Kop', 'http://www.coolstuff.dk/Den_Selvrorende_Kop'
-                  %li
-                    LAKJ:
-                    = link_to 'Quirky ledningsholder Sort', 'http://www.coolstuff.dk/Quirky-ledningsholder'
-                  %li
-                    IMRU:
-                    = link_to 'Egg Cuber', 'http://www.coolstuff.dk/Egg-Cuber'
-                  %li
-                    ADTA:
-                    = link_to 'Eggspress', 'http://www.coolstuff.dk/Eggspress'
-                %strong Trøstepræmie
-                %ul
-                  %li MAND: Bluetooth øresnegl - opladelig
-                  %li KWIN: 2 Led-lys til cykel- eller bilventil
-                  %li AMOS: Led til cykelhjul
-                  %li KTHR: Musikørepropper til telefon
-              .row.span8
-                Gaverne er sponsoreret af:
-              .row.span8
-                1000 kr. Campus Haderslev
-              .row.span8
-                1000 kr. Personaleforeningen ved campus Esbjerg
-              .row.span8
-                80 kr. Forfatternissen
-              .row.span8
-                Præmierne vil blive fragtet til de respektive campusser, når vi alligevel har bud derhen.
-                Personer, som tilhører Campus Haderslev bedes afhente deres præmier i It-Afdelingen.
-                %br
-                %br
-              .row.span8
-                %br
-            -# %p Så er vinderne af årets julekalender fundet. Der var 15 opgaver, hvoraf ikke alle kunne findes på nettet.
-              %p Med 5 præmier, som er sponsoreret af Personaleforeningen i Esbjerg, var det nødvendigt med en lodtrækning. Lodtrækning blev først foretaget mellem deltagere med 14 rigtige svar. Her blev der trukket lod om 1., 2. og 3. præmierne.
-              %p Vinderne af 4. og 5. præmierne blev fundet ved lodtrækning mellem deltagere med 13 rigtige.
-              %p Notarius Publicus nissen - alias Tekniknissen - foretog udtrækningerne fra Forfatternissens cykelhjelm, og præmierne blev fordelt således:
-              %p.row
-                %ol
-                  %li
-                    %strong KAJU Karl Aage Juhl - CFU Haderslev,
-                    %a{:href => 'http://www.coolstuff.dk/Bluetooth-hojttaler'} Bluetooth-højttaler
-                  %li
-                    %strong BEAN Birthe Elisabeth Andersen - Kolding,
-                    %a{:href => 'http://www.coolstuff.dk/Triscale-digital-kokkenvagt'} Køkkenvægt
-                  %li
-                    %strong RROH Rolf Rohwedder - grafisk - Haderslev,
-                    %a{:href => 'http://www.coolstuff.dk/Avera-Bluetooth-modtager'} Bluetooth-modtager
-              .row
-                %img.img-rounded.span3{:src => '/assets/7.jpg'}
-                %img.img-rounded.span3{:src => '/assets/11.jpg'}
-                %img.img-rounded.span3{:src => '/assets/9.jpg'}
-              %p.row
-                Herefter blev der trukket lod om 4. og 5. pladserne mellem de 5 med 13 rigtige og vinderne blev:
-                %ol{:start => 4}
-                  %li
-                    %strong IMTO Inger Marie Tobiesen - Esbjerg,
-                    %a{:href => 'http://www.coolstuff.dk/Anti-Slip-Pad'} Anti-Slip-Pad
-                  %li
-                    %strong HMIK Henriette Mikkelsen - Åbenrå,
-                    %a{:href => 'http://www.coolstuff.dk/Vandtatte_etuier'} Vandtæt etui
-              %p.row Det samlede deltagerfelt med 13 og 14 rigtige ser sådan ud, idet det skal bemærkes at IHJE er LHJE, og altså en rettelse af Sætternissen. 89 har deltaget i julespøgen, og heraf har de 45 svaret på mindst 5 spørgsmål.
-              %img.img-rounded{:src => '/assets/6.JPG'}
-              %p.row Tekniknissen, Forfatternissen og Personaleforeningen - Esbjerg.
+
           - elsif t.month < start
             %h1 University College SydDanmarks Julekalender
             %p
               - if t.month != start
                 = yield
                 Julekalenderen starter 1. december
+      .spacer.large
+      .row
+        %h3 Nisseservice
+        %p Gå ikke glip af vigtige point. Husk at julekalenderen kører helt frem til den 23. december, og at du kan svare hjemmefra, hvis du f.eks. allerede holder ferie fra på fredag.
       .spacer.large
       .row{style: 'text-align: center'}= link_to 'Gevinster!', 'gevinster/Gevinster1.xlsx', class: 'btn btn-large btn-primary'
       .spacer.large
